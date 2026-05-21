@@ -1,0 +1,7 @@
+{
+    "name": "Dev Sample Container",
+    "dockerComposeFile": "../compose.yaml",
+    "service": "app",
+    "workspaceFolder": "/workspace",
+    "shutdownAction": "stopCompose"
+}
