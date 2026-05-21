@@ -12,6 +12,7 @@ services:
     volumes:
       - .:/workspace # ソースをマウント
       - app-home:/home/${USER} # ホームディレクトリの永続化
+      - ${USER_SSH:-./docker/app/.ssh}:/home/${USER}/.ssh:ro # SSH設定
     working_dir: /workspace
     tty: true
     stdin_open: true
