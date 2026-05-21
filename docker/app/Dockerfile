@@ -11,6 +11,7 @@ RUN apt-get update && apt-get install -y \
     curl \
     vim \
     ca-certificates \
+    mysql-client-core-8.0 \
     && rm -rf /var/lib/apt/lists/*
 
 RUN if getent passwd ${USER_UID} > /dev/null; then \

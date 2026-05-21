@@ -17,6 +17,22 @@ services:
     tty: true
     stdin_open: true
     command: /bin/bash
+    depends_on:
+      - db
+
+  db:
+    container_name: dev-sample-db
+    image: mysql:8
+    environment:
+      MYSQL_ROOT_PASSWORD: passw0rd123
+      MYSQL_DATABASE: sampledb
+      MYSQL_USER: sqluser
+      MYSQL_PASSWORD: sql@pass
+    ports:
+      - "3306:3306"
+    volumes:
+      - db-data:/var/lib/mysql
 
 volumes:
   app-home:
+  db-data:
