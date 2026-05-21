@@ -1,6 +1,6 @@
 {
     "name": "Dev Sample Container",
-    "dockerComposeFile": "../compose.yaml",
+    "dockerComposeFile": ["../compose.yaml", "./compose.override.yaml"],
     "service": "app",
     "workspaceFolder": "/workspace",
     "shutdownAction": "stopCompose"
