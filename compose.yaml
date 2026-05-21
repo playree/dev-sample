@@ -1,0 +1,21 @@
+services:
+  app:
+    # 開発用
+    container_name: dev-sample-app
+    build:
+      context: ./docker/app
+      dockerfile: Dockerfile
+      args:
+        USER_NAME: ${USER:-ubuntu}
+        USER_UID: ${UID:-1000}
+        USER_GID: ${GID:-1000}
+    volumes:
+      - .:/workspace # ソースをマウント
+      - app-home:/home/${USER} # ホームディレクトリの永続化
+    working_dir: /workspace
+    tty: true
+    stdin_open: true
+    command: /bin/bash
+
+volumes:
+  app-home:
